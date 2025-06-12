@@ -98,3 +98,16 @@ footer {
   box-sizing: border-box;
   margin: 10px 0 25px 0;
 }
+
+.table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.table tr {
+  height: 30px;
+}
+
+.table tr td {
+  padding: 5px 10px;
+}
