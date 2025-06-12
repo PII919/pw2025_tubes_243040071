@@ -14,7 +14,7 @@ if ($_SESSION['status_login'] != true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Data Kategori</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -54,14 +54,20 @@ if ($_SESSION['status_login'] != true) {
                         <?php
                         $no = 1;
                         $kategori = mysqli_query($conn, "SELECT * FROM tb_category ORDER BY category_id DESC");
-                        while ($row = mysqli_fetch_array($kategori)) {
+                        if (mysqli_num_rows($kategori) > 0) {
+                            while ($row = mysqli_fetch_array($kategori)) {
                         ?>
+                                <tr>
+                                    <td><?php echo $no++ ?></td>
+                                    <td><?php echo $row['category_name'] ?></td>
+                                    <td>
+                                        <a href="edit-kategori.php?id=<?php echo $row['category_id'] ?>">Edit</a> || <a href="proses-hapus.php?idk=<?php echo $row['category_id'] ?>" onclick="return confirm('Yakin?')">Hapus</a>
+                                    </td>
+                                </tr>
+                            <?php }
+                        } else { ?>
                             <tr>
-                                <td><?php echo $no++ ?></td>
-                                <td><?php echo $row['category_name'] ?></td>
-                                <td>
-                                    <a href="edit-kategori.php?id=<?php echo $row['category_id'] ?>">Edit</a> || <a href="proses-hapus.php?idk=<?php echo $row['category_id'] ?>" onclick="return confirm('Yakin?')">Hapus</a>
-                                </td>
+                                <td colspan="3">Tidak Ada Data</td>
                             </tr>
                         <?php } ?>
                     </tbody>

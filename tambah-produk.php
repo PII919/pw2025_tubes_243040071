@@ -13,7 +13,7 @@ if ($_SESSION['status_login'] != true) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
+    <title>Tambah Produk</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,8 +118,6 @@ if ($_SESSION['status_login'] != true) {
                             echo 'gagal' . mysqli_error($conn);
                         }
                     }
-
-                    // proses upload file sekaligus insert ke database
                 }
                 ?>
             </div>
